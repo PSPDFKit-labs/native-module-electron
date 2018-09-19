@@ -1,0 +1,14 @@
+{
+  "name": "native-module-electron",
+  "version": "1.0.0",
+  "description": "Increment a number by one.",
+  "files": [
+    "addon.cpp",
+    "binding.gyp",
+    "index.js"
+  ],
+  "dependencies": {
+    "bindings": "^1.3.0",
+    "nan": "^2.11.0"
+  }
+}

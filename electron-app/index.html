@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Native Module Electron</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+  <header></header>
+
+  <p class="intro">This Electron app uses a native module to increment the number below.</p>
+
+  <div id="number"></div>
+
+  <button id="increment">Increment</button>
+
+  <!-- All of the Node.js APIs are available in this renderer process. -->
+  <div class="versions">
+    We are using Node.js
+    <script>document.write(process.versions.node)</script>, Chromium
+    <script>document.write(process.versions.chrome)</script>, and Electron
+    <script>document.write(process.versions.electron)</script>.
+  </div>
+
+  <script>
+    /**
+     * We append `process.platform` ass a CSS class to `<body>` so we can offset
+     * the frame less window alternative on macOS.
+     * https://electronjs.org/docs/api/frameless-window#alternatives-on-macos
+     */
+    document.body.classList.add(`platform-${process.platform}`);
+
+    /**
+    * Invoke the JavaScript for the renderer process.
+    */
+    require("./renderer.js");
+  </script>
+</body>
+
+</html>
